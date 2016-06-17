@@ -1,21 +1,13 @@
 # your code goes here
 class Person
-  attr_accessor :balance, :happiness, :hygiene
+  attr_accessor :bank_account, :happiness, :hygiene
   attr_reader :name
 
-  def initialize(name, balance = 25, happiness = 8, hygiene = 8)
+  def initialize(name)
     @name = name
-    @balance = balance
-    @happiness = happiness
-    @hygiene = hygiene
-  end
-
-  def bank_account
-    @balance
-  end
-
-  def bank_account=(money)
-    @balance+=money
+    @bank_account = 25
+    @happiness = 8
+    @hygiene = 8
   end
 
   def happiness
@@ -56,7 +48,8 @@ class Person
   end
 
   def get_paid(salary)
-    self.bank_account=(salary)
+    self.bank_account += salary
+    self.happiness += 1
     return "all about the benjamins"
   end
 
